@@ -8,7 +8,7 @@ if (keyboard_check(vk_right))
     // Flip the sprite to face right
     image_xscale = 1;
 }
-if (keyboard_check(vk_left))
+if (keyboard_check(vk_left)) 
 {
     x -= spd;
     // Flip the sprite to face left
