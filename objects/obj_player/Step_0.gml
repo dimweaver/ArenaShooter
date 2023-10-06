@@ -1,21 +1,23 @@
 // Initialize sprite facing right
 image_xscale = 1;
 
-// Movement
-if (keyboard_check(vk_right))
-{
-    x += spd;
-    // Flip the sprite to face right
-    image_xscale = 1;
+var _right = keyboard_check(vk_right) || keyboard_check(ord("D"));
+var _left = keyboard_check(vk_left) || keyboard_check(ord("A"));
+var _up = keyboard_check(vk_up) || keyboard_check(ord("W"));
+var _down = keyboard_check(vk_down) || keyboard_check(ord("S"));
+
+
+var _xinput = _right - _left;
+var _yinput = _down - _up
+
+// Set the image_xscale based on the direction the player is facing
+if (_xinput > 0) {
+    image_xscale = 1; // Facing right
+} else if (_xinput < 0) {
+    image_xscale = -1; // Facing left
 }
-if (keyboard_check(vk_left)) 
-{
-    x -= spd;
-    // Flip the sprite to face left
-    image_xscale = -1;
-}
-if (keyboard_check(vk_up)) y -= spd;
-if (keyboard_check(vk_down)) y += spd;
+
+move_and_collide(_xinput * spd, _yinput * spd, obj_wall)
 
 // Shooting
 if (mouse_check_button(mb_left) && (cooldown < 1))
