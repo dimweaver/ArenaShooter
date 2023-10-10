@@ -34,5 +34,9 @@ if (mouse_check_button(mb_left) && (cooldown < 1))
 }
 cooldown = cooldown - 1;
 
-// Die code
+// Hit code
+if (hit_cooldown > 0) {
+    hit_cooldown -= 1;
+};
+
 
