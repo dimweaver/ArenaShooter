@@ -17,7 +17,6 @@ if (instance_exists(obj_player))
     }
 }
 
-
 if (hp <= 0)
 {
 	with(obj_score) thescore = thescore + 5;
